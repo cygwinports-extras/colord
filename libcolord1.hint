@@ -1,0 +1,7 @@
+category: Libs
+requires: colord libgcc1 libglib2.0_0
+external-source: colord
+sdesc: "Client library for colord service (runtime)"
+ldesc: "colord is a system service that makes it easy to manage, install 
+and generate color profiles to accurately color manage input and output 
+devices."

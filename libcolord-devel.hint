@@ -1,0 +1,7 @@
+category: Libs
+requires: libcolord1 libdbus1-devel libglib2.0-devel liblcms2-devel
+external-source: colord
+sdesc: "Client library for colord service (development)"
+ldesc: "colord is a system service that makes it easy to manage, install 
+and generate color profiles to accurately color manage input and output 
+devices."

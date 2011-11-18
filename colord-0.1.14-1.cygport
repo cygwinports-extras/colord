@@ -1,0 +1,33 @@
+inherit gnome2
+
+
+HOMEPAGE="http://www.freedesktop.org/software/colord/"
+SRC_URI="http://www.freedesktop.org/software/colord/releases/${P}.tar.xz"
+
+PKG_NAMES="${PN} libcolord1 libcolord-devel girepository-Colord1.0 vala-colord"
+colord_CONTENTS="--exclude=*.dll --exclude=gir-1.0 --exclude=gtk-doc --exclude=vala
+                 etc/ usr/bin/ usr/sbin/ usr/share/ var/"
+libcolord1_CONTENTS="usr/bin/cygcolord-1.dll"
+libcolord_devel_CONTENTS="usr/include/ usr/lib/lib* usr/lib/pkgconfig/ usr/share/gtk-doc/"
+girepository_Colord1_0_CONTENTS="usr/*/gir*/Colord-1.0.*"
+vala_colord_CONTENTS="usr/share/vala/vapi/colord.*"
+
+DISTCLEANFILES="data/org.freedesktop.ColorManager.conf
+		policy/org.freedesktop.color.policy
+		rules/69-cd-sensors.rules"
+
+CYGCONF_ARGS="
+	--libexecdir=/usr/sbin
+	--disable-gudev
+	--disable-polkit
+	--disable-sane
+	--with-daemon-user=SYSTEM"
+
+src_install() {
+	cd ${B}
+	cyginstall udevrules_DATA=
+	make_etc_defaults /etc/colord.conf
+	keepdir /var/lib/color{,d}
+
+	dosbin ${C}/colord-config
+}
