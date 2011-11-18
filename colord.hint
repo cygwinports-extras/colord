@@ -1,5 +1,5 @@
 category: System
-requires: csih dbus libglib2.0_0 libintl8 liblcms2_2 libsqlite3_0
+requires: csih dbus libglib2.0_0 libintl8 liblcms2_2 libsqlite3_0 shared-color-profiles
 sdesc: "Freedesktop.org color profile management service"
 ldesc: "colord is a system service that makes it easy to manage, install 
 and generate color profiles to accurately color manage input and output 
